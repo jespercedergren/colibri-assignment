@@ -49,8 +49,21 @@ Keep raw data in its rawest for
 - no dedupe, can monitor on bronze table
 
 Assumptions:
-- assumes each file contains data complete for one day (hence confidently overwriting). at least assumes if date is present it has all data for that day.
+- assumes each file contains data complete for one day (hence confidently overwriting instead of merging). at least assumes if date is present it has all data for that day.
   => this allows for backfills (assume corrected files are overwritten, else will keep data in raw for both)
 
 #### Silver
-Assumes no dupes, otherwise would have to be deduped based on timestamp, turbine_id (would have to choose one value)
+
+##### Deduplication
+Data is deduplicated if there are more than one measurement for a turbine at a given time. 
+One of the rows are chosen arbitrarily, due to the lack of fields to further distinguish duplicate measurements.  
+
+##### Missing power output values
+Having investigated the power output values in [this](./tools/notebooks/EDA.ipynb) notebook, there does not seem to a 'seasonal' pattern 
+across days or within days. Also, there's no indication that the wind speed or wind direction would help in predicting the power output.
+Hence, a simple average or linear interpolation would be potential options, where the imputed value using linear interpolation would be the 
+average of the two adjacent measurements. However, the power output values does not seem to depend on the adjacent measurement values so linear interpolation 
+is probably not suitable.
+This leaves us with the option of using a simple average within a given day.
+
+##### Outliers
