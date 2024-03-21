@@ -1,0 +1,8 @@
+.idea
+*__pycache__*
+*.ipynb_checkpoints*
+*fairscheduler-statedump.log*
+
+src/colibri/transform/
+tools/notebooks/
+tests/resources/data/output/

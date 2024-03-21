@@ -37,3 +37,20 @@ make dev_notebook
 ```
 
 which can accessed on `localhost:8889` using the link (with the token) provided in the logs after running the command above.
+
+## Assignment
+### Data
+All turbines are expected to have an hourly measurement.
+
+### Application
+#### Bronze
+Keep raw data in its rawest for
+- infer schema: a) no errors casting potentially losing information b) allows for schema evolution
+- no dedupe, can monitor on bronze table
+
+Assumptions:
+- assumes each file contains data complete for one day (hence confidently overwriting). at least assumes if date is present it has all data for that day.
+  => this allows for backfills (assume corrected files are overwritten, else will keep data in raw for both)
+
+#### Silver
+Assumes no dupes, otherwise would have to be deduped based on timestamp, turbine_id (would have to choose one value)
