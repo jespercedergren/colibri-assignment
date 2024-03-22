@@ -1,8 +1,8 @@
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql.functions import input_file_name, to_date
 
-from pipeline.pipeline import Pipeline
-from config import Config
+from src.colibri.pipeline.pipeline import Pipeline
+from src.colibri.config import Config
 
 
 class BronzePipeline(Pipeline):

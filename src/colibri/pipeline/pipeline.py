@@ -1,6 +1,6 @@
 from pyspark.sql import DataFrame, SparkSession
 
-from config import Config
+from src.colibri.config import Config
 
 
 class Pipeline:

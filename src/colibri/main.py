@@ -1,8 +1,8 @@
 from pyspark.sql import SparkSession
 
-from config import Config
-from pipeline.bronze import BronzePipeline
-from pipeline.silver import SilverPipeline
+from src.colibri.config import Config
+from src.colibri.pipeline.bronze import BronzePipeline
+from src.colibri.pipeline.silver import SilverPipeline
 
 if __name__ == "__main__":
     print("Running main")

@@ -2,7 +2,8 @@
 *__pycache__*
 *.ipynb_checkpoints*
 *fairscheduler-statedump.log*
+*.pytest_cache*
 
 src/colibri/transform/
 tools/notebooks/
-tests/resources/data/output/
+src/tests/resources/data/output/

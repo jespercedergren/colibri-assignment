@@ -1,8 +1,8 @@
 from pyspark.sql import SparkSession
 
-from pipeline.pipeline import Pipeline
-from config import Config
-from transform.silver import transform
+from src.colibri.pipeline.pipeline import Pipeline
+from src.colibri.config import Config
+from src.colibri.transform.silver import transform
 
 
 class SilverPipeline(Pipeline):
