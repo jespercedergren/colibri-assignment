@@ -37,9 +37,7 @@ def transform(df: DataFrame) -> DataFrame:
 
 
 def deduplicate(df: DataFrame) -> DataFrame:
-    return df.dropDuplicates(["turbine_id", "timestamp"])
-    # measurement_window = Window.partitionBy(col("turbine_id"), col("timestamp"))
-    # return df.withColumn("rn", row_number().over(measurement_window)).filter(col("rn") == 1).drop("rn")
+    return df.drop_duplicates(["turbine_id", "timestamp"])
 
 
 def enrich_metrics(df: DataFrame) -> DataFrame:
@@ -70,7 +68,7 @@ def handle_anomalies(df: DataFrame) -> DataFrame:
         "anomaly_flag_power_output",
         when(
             abs(col("power_output") - col("avg_power_output"))
-            > +2 * col("std_power_output"),
+            > 2 * col("std_power_output"),
             True,
         ).otherwise(False),
     )

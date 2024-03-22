@@ -10,14 +10,13 @@ class BronzePipeline(Pipeline):
         super().__init__(spark, config)
 
     def run(self):
-        df = self.read(self.spark, self.config.raw_input_path)
+        df = self.read(self.config.raw_input_path)
         enriched_df = self.enrich(df)
         self.write(enriched_df, self.config.bronze_path)
 
-    @staticmethod
-    def read(spark: SparkSession, input_path: str) -> DataFrame:
+    def read(self, input_path: str) -> DataFrame:
         return (
-            spark.read.option("inferSchema", True)
+            self.spark.read.option("inferSchema", True)
             .option("header", True)
             .csv(input_path)
         )

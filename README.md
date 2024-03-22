@@ -2,7 +2,7 @@
 
 The resulting data can be read from `./src/tests/resources/data/output` for the corresponding Bronze and Silver tables.
 
-The lmited explorative data analysis can be found in [this](tools/notebooks/EDA.ipynb) Jupyter notebook. 
+The limited explorative data analysis can be found in [this](tools/notebooks/EDA.ipynb) Jupyter notebook. 
 
 To run the code and open the notebook within this project in a Docker environment, please follow the instructions in the 
 section below.
