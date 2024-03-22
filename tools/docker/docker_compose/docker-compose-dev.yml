@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  dev:
+    platform: linux/amd64
+    image: colibri/dev
+    container_name: colibri_dev
+    ports:
+      - "8889:8889" #jupyter notebook
+      - "4040:4040" #spark UI
+    volumes:
+      - ../../../src:/src
+      - ../../../tools/notebooks:/notebooks
+      - ../../../tests:/tests
+    environment:
+      PYTHONPATH: src/colibri
+    entrypoint: /usr/bin/tail -f /dev/null
+    networks:
+      - colibri_network
+
+networks:
+  colibri_network:
+    name: colibri_network
