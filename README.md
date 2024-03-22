@@ -67,3 +67,8 @@ is probably not suitable.
 This leaves us with the option of using a simple average within a given day.
 
 ##### Outliers
+
+
+
+### Future improvements
+- Use Apache Delta
