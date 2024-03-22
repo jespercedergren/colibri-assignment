@@ -12,6 +12,8 @@ services:
       - ../../../src:/src
       - ../../../tools/notebooks:/notebooks
       - ../../../tests:/tests
+    environment:
+      PYTHONPATH: src/colibri
     entrypoint: /usr/bin/tail -f /dev/null
     networks:
       - colibri_network
