@@ -3,6 +3,3 @@
 *.ipynb_checkpoints*
 *fairscheduler-statedump.log*
 *.pytest_cache*
-
-tools/notebooks/
-src/tests/resources/data/output/
