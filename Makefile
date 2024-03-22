@@ -19,7 +19,7 @@ dev_spin_down:
 	-f ./tools/docker/docker_compose/docker-compose-dev.yml \
 	down
 
-dev_notebook:
+dev_jupyter:
 	docker exec -it -w /notebooks ${project}_dev jupyter notebook --port=8889 --no-browser --ip=0.0.0.0 --allow-root
 
 test:

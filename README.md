@@ -2,7 +2,7 @@
 
 The resulting data can be read from `./src/tests/resources/data/output` for the corresponding Bronze and Silver tables.
 
-The limited explorative data analysis can be found in [this](tools/notebooks/EDA.ipynb) Jupyter notebook. 
+The limited exploration data analysis can be found in [this](tools/notebooks/EDA.ipynb) Jupyter notebook. 
 
 To run the code and open the notebook within this project in a Docker environment, please follow the instructions in the 
 section below.
@@ -94,6 +94,8 @@ Outliers or anomalies are currently flagged as an anomaly, in the column `flag_i
 This limit is chosen arbitrarily without any data or domain knowledge, for illustrative purpose only.
 In order to not obfuscate the data, the values are not replaced, the user is presented with a flag and handle outliers how they see fit. 
 Same as for missing values, `imputed_power_output` could be used to both replace null values and outliers while at the same time keeping the original value in the original column.  
+
+As the median is less sensitive to outliers than the average, using the median to impute values instead of the average would be beneficial if outliers are expected to be present.   
 
 ##### Missing rows
 As mentioned above, rows are not expected to be missing.
