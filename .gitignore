@@ -4,6 +4,5 @@
 *fairscheduler-statedump.log*
 *.pytest_cache*
 
-src/colibri/transform/
 tools/notebooks/
 src/tests/resources/data/output/
