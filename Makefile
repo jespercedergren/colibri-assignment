@@ -2,7 +2,7 @@ project ?= colibri
 
 check:
 	@echo "\n>>> Formatting python code..."
-	pre-commit run -a
+	python3 -m black src
 
 clean:
 	rm -fr build/

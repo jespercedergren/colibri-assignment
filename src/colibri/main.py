@@ -1,12 +1,16 @@
 from pyspark.sql import SparkSession
 
-from src.colibri.config import Config
-from src.colibri.pipeline.bronze import BronzePipeline
-from src.colibri.pipeline.silver import SilverPipeline
+from config import Config
+from pipeline.bronze import BronzePipeline
+from pipeline.silver import SilverPipeline
 
 if __name__ == "__main__":
     print("Running main")
-    spark = SparkSession.builder.config("spark.master", "local").appName("colibri").getOrCreate()
+    spark = (
+        SparkSession.builder.config("spark.master", "local")
+        .appName("colibri")
+        .getOrCreate()
+    )
 
     print("Spark initialized")
     config = Config()
@@ -33,4 +37,3 @@ if __name__ == "__main__":
 # does wind speed and wind_direction help with power output and
 
 # create imputed value columns
-

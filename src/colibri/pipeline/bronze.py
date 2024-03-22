@@ -1,8 +1,8 @@
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql.functions import input_file_name, to_date
 
-from src.colibri.pipeline.pipeline import Pipeline
-from src.colibri.config import Config
+from pipeline.pipeline import Pipeline
+from config import Config
 
 
 class BronzePipeline(Pipeline):
@@ -16,8 +16,14 @@ class BronzePipeline(Pipeline):
 
     @staticmethod
     def read(spark: SparkSession, input_path: str) -> DataFrame:
-        return spark.read.option("inferSchema", True).option("header", True).csv(input_path)
+        return (
+            spark.read.option("inferSchema", True)
+            .option("header", True)
+            .csv(input_path)
+        )
 
     @staticmethod
     def enrich(df: DataFrame) -> DataFrame:
-        return df.withColumn("date", to_date("timestamp")).withColumn("input_file_name", input_file_name())
+        return df.withColumn("date", to_date("timestamp")).withColumn(
+            "input_file_name", input_file_name()
+        )
