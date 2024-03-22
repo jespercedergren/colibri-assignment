@@ -1,13 +1,7 @@
 project ?= colibri
 
 fmt:
-	@echo "\n>>> Formatting python code..."
-	python3 -m black src
-
-clean:
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
+	docker exec -it ${project}_dev python3 -m black src
 
 build_images:
 	docker build -t ${project}/spark -f ./tools/docker/dockerfiles/Dockerfile.spark --platform=linux/amd64 .

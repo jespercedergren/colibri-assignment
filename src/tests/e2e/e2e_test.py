@@ -6,7 +6,7 @@ from src.colibri.pipeline.silver import SilverPipeline
 
 
 class E2ETest:
-    @pytest.fixture(scope="session")
+    @pytest.mark.skip(reason="Not implemented yet")
     def test_app(self, spark):
         config = Config()
 
@@ -15,3 +15,5 @@ class E2ETest:
 
         bronze_pipeline.run()
         silver_pipeline.run()
+
+        # assert output
